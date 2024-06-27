@@ -39,7 +39,7 @@ const VehicleTable = () => {
                 <tbody>
                     { vehicles.map((vehicle, index) => (
                         <tr>
-                            <th scope="row">{ index + 1 }</th>
+                            <th>{ index + 1 }</th>
                             <td>{ vehicle?.model }</td>
                             <td>{ vehicle?.color }</td>
                             <td>{ vehicle?.description }</td>

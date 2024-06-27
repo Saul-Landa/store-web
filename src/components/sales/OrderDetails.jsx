@@ -52,10 +52,17 @@ const OrderDetails = () => {
 
     const changeStatus = () => {
         const orderStatus = statusList.find( x => x.id == status );
+        if ( !orderStatus ) {
+            showErrorMessage("Select a status to continue.");
+            return
+        }
+        if ( orderStatus?.name == "Pending" ) {
+            showErrorMessage("You can't change to pending.");
+            return
+        }
         api.put(`/orders/status/${params?.id}`, orderStatus).then(response => {
-            console.log(response.data);
             if ( !response.data?.id ) {
-                showErrorMessage("You can't cancel because more than 10 minutes have elapsed");
+                showErrorMessage("You can't cancel because more than 30 seconds have elapsed.");
                 return
             }
 

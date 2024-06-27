@@ -36,8 +36,8 @@ const OrderTable = () => {
                 <tbody>
                     { orders.map((order, index) => (
                         <tr>
-                            <th scope="row">{ index + 1 }</th>
-                            <td>{ order?.clientFirstName + order?.clientLastName }</td>
+                            <th>{ index + 1 }</th>
+                            <td>{ order?.clientFirstName + ' ' + order?.clientLastName }</td>
                             <td>{ moment(order?.dateCreated).format('LLL')  }</td>
                             <td>{ order?.orderStatus?.name }</td>
                             <td>
